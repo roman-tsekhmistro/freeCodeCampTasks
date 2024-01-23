@@ -1,29 +1,33 @@
-const currentDateParagraph = document.getElementById('current-date');
-const dateOptionsSelectElement = document.getElementById('date-options');
+const input = document.getElementById('text-input');
+const btn = document.getElementById('check-btn');
+const result = document.getElementById('result');
 
-const date = new Date();
-const day = date.getDate();
-const month = date.getMonth() + 1;
-const year = date.getFullYear();
-const hours = date.getHours();
-const minutes = date.getMinutes();
+const checkForPalindrome = (input) => {
+	const originalInput = input; // Store for later output
 
-const formattedDate = `${day}-${month}-${year}`;
-currentDateParagraph.textContent = formattedDate;
+	if (input === '') {
+		result.textContent = 'Please input a value';
+		return;
+	}
 
-dateOptionsSelectElement.addEventListener('change', () => {
-	switch (dateOptionsSelectElement.value) {
-		case 'yyyy-mm-dd':
-			currentDateParagraph.textContent = formattedDate
-				.split('-')
-				.reverse()
-				.join('-');
-			break;
-		case 'mm-dd-yyyy-h-mm':
-			currentDateParagraph.textContent = `${month}-${day}-${year} ${hours} Hours ${minutes} Minutes`;
-			break;
-		default:
-			currentDateParagraph.textContent = formattedDate;
-			break;
+	result.replaceChildren();
+
+	const lowerCaseStr = input.replace(/[^A-Za-z0-9]/gi, '').toLowerCase();
+	let resultMsg = `<strong>${originalInput}</strong> ${
+		lowerCaseStr === [...lowerCaseStr].reverse().join('') ? 'is' : 'is not'
+	} a palindrome.`;
+
+	result.innerHTML = resultMsg;
+};
+
+btn.addEventListener('click', () => {
+	checkForPalindrome(input.value);
+	input.value = '';
+});
+
+input.addEventListener('keydown', (e) => {
+	if (e.key === 'Enter') {
+		checkForPalindrome(input.value);
+		input.value = '';
 	}
 });

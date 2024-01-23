@@ -6,98 +6,83 @@
 	box-sizing: border-box;
 }
 
-:root {
-	--dark-grey: #0a0a23;
-	--white: #ffffff;
-	--yellow: #f1be32;
-}
-
 body {
-	color: var(--white);
-	background-color: var(--dark-grey);
-}
-
-.title-container {
-	margin: 10px 0;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
 	display: flex;
+	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	gap: 8px;
+	gap: 30px;
+	height: 100vh;
+
+	background-color: #0c0133;
 }
 
-.title {
-	font-size: 2.5rem;
+h1 {
+	font-size: 42px;
+	color: #fff;
 }
 
-.date-svg {
-	width: 30px;
-	height: 30px;
+.palindrome__wrapper {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+	gap: 20px;
+
+	border-radius: 20px;
+
+	width: min(100vw, 450px);
+	min-height: 140px;
+
+	background-color: #fff;
+
+	padding: 20px;
+
+	box-shadow: 0 6px 6px #002ead;
 }
 
-.divider {
-	margin: auto;
-	width: 150px;
-	height: 10px;
-	background-color: var(--yellow);
-}
-
-.dropdown-container {
-	width: 50%;
-	margin: 40px auto;
-	position: relative;
-}
-
-select {
-	display: block;
-	margin: 20px auto 0;
-	width: 100%;
-	height: 50px;
-	font-size: 100%;
-	font-weight: bold;
-	cursor: pointer;
-	background-color: var(--white);
+.palindrome__wrapper #text-input {
 	border: none;
-	color: var(--dark-grey);
-	appearance: none;
-	padding: 10px;
-	padding-right: 38px;
-	-webkit-appearance: none;
-	-moz-appearance: none;
-	transition: color 0.3s ease, background-color 0.3s ease,
-		border-bottom-color 0.3s ease;
+	border-bottom: 2px solid rgb(90, 1, 167);
+	caret-color: rgb(90, 1, 167);
+
+	width: 250px;
+	height: 30px;
+
+	font-size: 30px;
 }
 
-.select-icon {
-	position: absolute;
-	top: 4px;
-	right: 4px;
-	width: 30px;
-	height: 36px;
-	pointer-events: none;
-	padding-left: 5px;
-	transition: background-color 0.3s ease, border-color 0.3s ease;
+.palindrome__wrapper #text-input:focus {
+	outline: none;
 }
 
-.select-icon svg.icon {
-	transition: fill 0.3s ease;
-	fill: var(--dark-grey);
+#check-btn {
+	background-color: rgb(90, 1, 167);
+	color: #fff;
+	border: none;
+	padding: 10px 30px;
+	border-radius: 15px;
 }
 
-#current-date {
-	font-size: 2rem;
+.palindrome__hint {
+	display: flex;
+
 	text-align: center;
+
+	padding: 20px;
+	background-color: #00471b;
+	width: min(100vw, 450px);
+	min-height: 140px;
+
+	border-radius: 20px;
 }
 
-@media (max-width: 375px) {
-	.title {
-		font-size: 2rem;
-	}
+.palindrome__hint--lamp {
+	font-size: 24px;
+}
 
-	.dropdown-container {
-		width: 80%;
-	}
-
-	.date-svg {
-		display: none;
-	}
+.palindrome__hint--text {
+	color: #fff;
+	font-size: 21px;
 }
