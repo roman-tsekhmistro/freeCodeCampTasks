@@ -1,88 +1,64 @@
 *,
 *::before,
 *::after {
+	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
-	box-sizing: border-box;
+}
+
+:root {
+	--dark-grey: #0a0a23;
+	--light-grey: #f5f6f7;
+	--white: #ffffff;
+	--black: #000;
 }
 
 body {
-	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	background-color: var(--dark-grey);
+	text-align: center;
+	padding: 10px;
+}
+
+.title,
+.options-label,
+.team-stats,
+footer {
+	color: var(--white);
+}
+
+.title {
+	margin: 1.3rem 0;
+}
+
+.team-stats {
 	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	gap: 30px;
-	height: 100vh;
-
-	background-color: #0c0133;
+	justify-content: space-around;
+	flex-wrap: wrap;
+	font-size: 1.3rem;
+	margin: 1.2rem 0;
 }
 
-h1 {
-	font-size: 42px;
-	color: #fff;
+.options-label {
+	font-size: 1.2rem;
 }
 
-.palindrome__wrapper {
+.cards {
 	display: flex;
 	flex-wrap: wrap;
-	align-items: center;
 	justify-content: center;
-	gap: 20px;
-
-	border-radius: 20px;
-
-	width: min(100vw, 450px);
-	min-height: 140px;
-
-	background-color: #fff;
-
-	padding: 20px;
-
-	box-shadow: 0 6px 6px #002ead;
+	align-items: center;
 }
 
-.palindrome__wrapper #text-input {
-	border: none;
-	border-bottom: 2px solid rgb(90, 1, 167);
-	caret-color: rgb(90, 1, 167);
-
-	width: 250px;
-	height: 30px;
-
-	font-size: 30px;
-}
-
-.palindrome__wrapper #text-input:focus {
-	outline: none;
-}
-
-#check-btn {
-	background-color: rgb(90, 1, 167);
-	color: #fff;
-	border: none;
-	padding: 10px 30px;
+.player-card {
+	background-color: var(--light-grey);
+	padding: 1.3rem;
+	margin: 1.2rem;
+	width: 300px;
 	border-radius: 15px;
 }
 
-.palindrome__hint {
-	display: flex;
-
-	text-align: center;
-
-	padding: 20px;
-	background-color: #00471b;
-	width: min(100vw, 450px);
-	min-height: 140px;
-
-	border-radius: 20px;
-}
-
-.palindrome__hint--lamp {
-	font-size: 24px;
-}
-
-.palindrome__hint--text {
-	color: #fff;
-	font-size: 21px;
+@media (max-width: 768px) {
+	.team-stats {
+		flex-direction: column;
+	}
 }
